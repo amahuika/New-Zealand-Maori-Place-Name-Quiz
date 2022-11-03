@@ -1,13 +1,15 @@
 import "./App.css";
 
+import GameSection from "./components/gameSection/GameSection";
+import Header from "./components/header/Header";
+import Results from "./components/results/Results";
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
+    <div className="app">
+      <Header />
+      <GameSection />
+      <Results />
     </div>
   );
 }
