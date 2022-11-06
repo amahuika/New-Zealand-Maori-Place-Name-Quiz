@@ -36,7 +36,7 @@ const GameSection = (props) => {
         <div className="col-6 col-md-5">
           <Card class="name-holder">
             {props.placeNameData.name === ""
-              ? "Click generate button"
+              ? "Click generate"
               : props.placeNameData.name}
           </Card>
           <div className="row mt-1">
@@ -58,6 +58,10 @@ const GameSection = (props) => {
             onChange={changeHandle}
             options={!props.isCorrectAnswer ? props.options : []}
             isSearchable={false}
+            theme={(theme) => ({
+              ...theme,
+              borderRadius: 6,
+            })}
           />
         </div>
       </div>

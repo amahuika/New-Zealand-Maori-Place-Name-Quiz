@@ -6,6 +6,8 @@ import Header from "./components/header/Header";
 import Results from "./components/results/Results";
 import Map from "./components/displayMap/Map";
 import gameData from "./assets/GameData";
+import { v4 as uuidv4 } from "uuid";
+
 import { shuffleArray, randomNum } from "./components/utilities/Functions";
 
 function App() {
@@ -16,7 +18,8 @@ function App() {
   });
   const [answerOptions, setAnswerOptions] = useState([]);
   const [showMap, setShowMap] = useState(false);
-  const [userAnswer, setUserAnswer] = useState({ correct: [], incorrect: [] });
+  const [userAnswerCorrect, setUserAnswerCorrect] = useState([]);
+  const [userAnswerIncorrect, setUserAnswerIncorrect] = useState([]);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
 
   const allData = gameData;
@@ -77,25 +80,25 @@ function App() {
   // answer handlers
   const answerHandler = (status, answer) => {
     if (status === "correct") {
-      setUserAnswer((value) => {
-        return {
-          correct: [
-            ...value.correct,
-            `${maoriPlaceName.name} - ${answer}, is correct!`,
-          ],
-          incorrect: [...value.incorrect],
-        };
+      setUserAnswerCorrect((value) => {
+        return [
+          {
+            id: uuidv4(),
+            answer: `${maoriPlaceName.name} - ${answer}, is correct!`,
+          },
+          ...value,
+        ];
       });
       setIsCorrectAnswer(true);
     } else {
-      setUserAnswer((value) => {
-        return {
-          correct: [...value.correct],
-          incorrect: [
-            ...value.incorrect,
-            `${maoriPlaceName.name} - ${answer}, is incorrect!`,
-          ],
-        };
+      setUserAnswerIncorrect((value) => {
+        return [
+          {
+            id: uuidv4(),
+            answer: `${maoriPlaceName.name} - ${answer}, is incorrect!`,
+          },
+          ...value,
+        ];
       });
     }
   };
@@ -103,7 +106,6 @@ function App() {
   return (
     <div className=" container-fluid">
       {showMap && <Map name={maoriPlaceName.name} onClickHandle={onHideMap} />}
-
       <Header onGenerateName={generateName} />
       <GameSection
         onShowMap={onShowMap}
@@ -113,8 +115,8 @@ function App() {
         isCorrectAnswer={isCorrectAnswer}
       />
       <Results
-        correctAnswers={userAnswer.correct}
-        incorrectAnswers={userAnswer.incorrect}
+        correctAnswers={userAnswerCorrect}
+        incorrectAnswers={userAnswerIncorrect}
       />
     </div>
   );

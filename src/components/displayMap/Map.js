@@ -21,6 +21,8 @@ const Map = (props) => {
         <div className="d-flex justify-content-between mt-2">
           <a
             href={`https://www.google.com/maps/place/${props.name},+New+Zealand`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-primary"
           >
             View on Google Maps
