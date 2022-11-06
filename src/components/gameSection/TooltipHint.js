@@ -1,24 +1,19 @@
-import { useState } from "react";
-import "./Tooltip.css";
+import React from "react";
+import ReactTooltip from "react-tooltip";
 
 const TooltipHint = (props) => {
-  const [showTooltip, setShowToolTip] = useState(false);
-
-  const tooltipHandler = () => {
-    if (!showTooltip) {
-      setShowToolTip(true);
-    } else {
-      setShowToolTip(false);
-    }
-  };
-
   return (
-    <button className="tooltip" onClick={tooltipHandler}>
-      Hint <i class="bi bi-lightbulb"></i>
-      <span className={`${showTooltip && "show"} tooltiptext`}>
-        This is a hint text
+    <React.Fragment>
+      <span
+        className="btn btn-warning btn-sm text-light"
+        data-tip={`Hint: ${props.hint}`}
+        data-event="click focus"
+      >
+        <span className="hide-on-small">Hint</span>{" "}
+        <i className="bi bi-lightbulb"></i>
       </span>
-    </button>
+      <ReactTooltip globalEventOff="click" />
+    </React.Fragment>
   );
 };
 

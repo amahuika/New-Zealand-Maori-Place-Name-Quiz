@@ -4,3 +4,16 @@
   align-items: center;
   text-align: center;
 }
+.results-section .card {
+  width: 40%;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  padding: 5px;
+}

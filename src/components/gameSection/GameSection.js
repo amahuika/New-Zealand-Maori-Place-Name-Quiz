@@ -1,30 +1,67 @@
 import "./GameSection.css";
 import Select from "react-select";
 import TooltipHint from "./TooltipHint";
+import Swal from "sweetalert2";
+import React from "react";
+import Button from "../UI/Button";
+import Card from "../UI/Card";
 
 const GameSection = (props) => {
-  return (
-    <div className="section">
-      <div className="select-div">
-        <div className="place-name">
-          <div className="title">
-            <span>the place name</span>
-          </div>
-          <div className="location">
-            <span>
-              <i class="bi bi-pin-map"></i>
-            </span>
-          </div>
-        </div>
+  const changeHandle = (e) => {
+    if (e.value === props.placeNameData.answer) {
+      Swal.fire({
+        title: "Correct!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1100,
+      });
+      props.answerHandler("correct", e.value);
+      console.log("correct");
+    } else {
+      Swal.fire({
+        title: "Try again!",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1100,
+      });
+      props.answerHandler("incorrect", e.value);
 
-        <div className="tooltip-btn">
-          <TooltipHint />
+      console.log("incorrect");
+    }
+  };
+  console.log(props.options);
+  return (
+    <React.Fragment>
+      <div className="row mb-3 justify-content-center">
+        <div className="col-6 col-md-5">
+          <Card class="name-holder">
+            {props.placeNameData.name === ""
+              ? "Click generate button"
+              : props.placeNameData.name}
+          </Card>
+          <div className="row mt-1">
+            <div className="col-8">
+              <Button onClickHandle={props.onShowMap} class="btn-danger btn-sm">
+                <span className="hide-on-small">Show on map </span>
+                <i className="bi bi-geo-alt-fill"></i>
+              </Button>
+            </div>
+            <div className="col-4 ps-0 d-flex justify-content-end">
+              <TooltipHint hint={props.placeNameData.hint} />
+            </div>
+          </div>
+        </div>
+        <div className="col-6 col-md-5">
+          <Select
+            value={null}
+            placeholder={props.isCorrectAnswer ? "Well Done!" : "Options..."}
+            onChange={changeHandle}
+            options={!props.isCorrectAnswer ? props.options : []}
+            isSearchable={false}
+          />
         </div>
       </div>
-      <div className="select-div">
-        <Select />
-      </div>
-    </div>
+    </React.Fragment>
   );
 };
 
