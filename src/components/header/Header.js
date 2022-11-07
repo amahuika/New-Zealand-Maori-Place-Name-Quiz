@@ -17,8 +17,8 @@ const Header = (props) => {
           <br />
           Stuck? click the hint button.
         </p>
-        <p className="mb-2">
-          Click the button to generate a random Maori place name
+        <p className="mb-2 fw-bold">
+          Click this button to generate a place name.
         </p>
         <Button class="btn-success" onClickHandle={generateHandle}>
           <span className="generateTxt">Generate Place Name</span>

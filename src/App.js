@@ -106,7 +106,7 @@ function App() {
   };
 
   return (
-    <React.Fragment>
+    <div className="container-fluid">
       {showMap && <Map name={maoriPlaceName.name} onClickHandle={onHideMap} />}
       <Header onGenerateName={generateName} />
       <GameSection
@@ -120,7 +120,7 @@ function App() {
         correctAnswers={userAnswerCorrect}
         incorrectAnswers={userAnswerIncorrect}
       />
-    </React.Fragment>
+    </div>
   );
 }
 

@@ -34,11 +34,11 @@ const GameSection = (props) => {
   };
 
   return (
-    <div className="row mb-3 justify-content-center">
+    <div className="row game-section justify-content-center">
       <div className="col-6 col-md-5">
         <Card class="name-holder">
           {props.placeNameData.name === ""
-            ? "Click generate"
+            ? "Click generate button"
             : props.placeNameData.name}
         </Card>
         <div className="row mt-1">
@@ -56,7 +56,9 @@ const GameSection = (props) => {
       <div className="col-6 col-md-5">
         <Select
           value={null}
-          placeholder={props.isCorrectAnswer ? "Well Done!" : "Options..."}
+          placeholder={
+            props.isCorrectAnswer ? props.placeNameData.answer : "Options..."
+          }
           onChange={changeHandle}
           options={props.options}
           isSearchable={false}
