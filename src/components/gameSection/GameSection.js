@@ -35,7 +35,7 @@ const GameSection = (props) => {
 
   return (
     <div className="row game-section justify-content-center">
-      <div className="col-6 col-md-5">
+      <div className="col-6 col-md-5 col-xl-4 ">
         <Card class="name-holder">
           {props.placeNameData.name === ""
             ? "Click generate button"
@@ -53,7 +53,7 @@ const GameSection = (props) => {
           </div>
         </div>
       </div>
-      <div className="col-6 col-md-5">
+      <div className="col-6 col-md-5 col-xl-4">
         <Select
           value={null}
           placeholder={
