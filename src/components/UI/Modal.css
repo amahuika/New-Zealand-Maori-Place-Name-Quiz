@@ -10,7 +10,7 @@
 
 .modal-main {
   position: fixed;
-  left: 33%;
+  /*    left: 33%; */
   top: 5%;
   margin: 5%, auto;
   width: fit-content;
@@ -23,26 +23,32 @@
 }
 
 /* Large devices (laptops/desktops, 992px and down) */
-@media only screen and (max-width: 992px) {
+/* @media only screen and (max-width: 992px) {
   .modal-main {
     width: fit-content;
     top: 5%;
     left: 30%;
   }
-}
+} */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {
+  .modal-main {
+    width: fit-content;
+    top: 5%;
+    left: 40%;
+  }
+} */
 
 @media (max-width: 768px) {
   .modal-main {
     width: 70%;
     top: 5%;
-    left: 15%;
   }
 }
 @media (max-width: 600px) {
   .modal-main {
     width: 85%;
     top: 5%;
-    left: 7%;
   }
 }
 @keyframes slide-down {

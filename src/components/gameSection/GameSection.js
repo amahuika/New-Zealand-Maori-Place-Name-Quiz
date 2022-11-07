@@ -7,6 +7,7 @@ import Button from "../UI/Button";
 import Card from "../UI/Card";
 import soundSuccess from "../../assets/sounds/successSound.mp3";
 
+// Correct alert tone
 const correctSound = new Audio(soundSuccess);
 
 const GameSection = (props) => {
@@ -14,7 +15,6 @@ const GameSection = (props) => {
   const changeHandle = (e) => {
     if (e.value === props.placeNameData.answer) {
       correctSound.play();
-
       Swal.fire({
         title: "Correct!",
         icon: "success",

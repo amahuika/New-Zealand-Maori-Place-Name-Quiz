@@ -27,7 +27,9 @@ const Modal = (props) => {
         portalElement
       )}
       {ReactDOM.createPortal(
-        <ModalOverLay>{props.children}</ModalOverLay>,
+        <div className="d-flex justify-content-center">
+          <ModalOverLay>{props.children}</ModalOverLay>{" "}
+        </div>,
         portalElement
       )}
     </React.Fragment>
