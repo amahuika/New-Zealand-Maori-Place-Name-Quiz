@@ -23,8 +23,8 @@ const Results = (props) => {
       <div className="col-6 col-md-5">
         {props.correctAnswers.length > 0 && (
           <Card class="p-2">
-            <h4 className="text-success">Correct</h4>
-            <hr />
+            <h4 className="text-success fw-bold">Correct</h4>
+            <hr className="mb-2" />
             {correctAnswerList}
           </Card>
         )}
@@ -32,8 +32,8 @@ const Results = (props) => {
       <div className="col-6 col-md-5">
         {props.incorrectAnswers.length > 0 && (
           <Card class="p-2">
-            <h4 className="text-danger">Incorrect</h4>
-            <hr />
+            <h4 className="text-danger fw-bold">Incorrect</h4>
+            <hr className="mb-2" />
             {incorrectAnswerList}
           </Card>
         )}

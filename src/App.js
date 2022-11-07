@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import React, { useEffect, useState } from "react";
 
 import GameSection from "./components/gameSection/GameSection";
 import Header from "./components/header/Header";
 import Results from "./components/results/Results";
-import Map from "./components/displayMap/Map";
+import Map from "./components/displayMapModal/Map";
 import gameData from "./assets/GameData";
 import { v4 as uuidv4 } from "uuid";
-
 import { shuffleArray, randomNum } from "./components/utilities/Functions";
+
+import "./App.css";
 
 function App() {
   const [maoriPlaceName, setMaoriPlaceName] = useState({
@@ -21,12 +21,12 @@ function App() {
   const [userAnswerCorrect, setUserAnswerCorrect] = useState([]);
   const [userAnswerIncorrect, setUserAnswerIncorrect] = useState([]);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
-
+  // adding gameData
   const allData = gameData;
 
-  // use effect used to select four random options for the dropdown
+  // use effect used to select four random options for the dropdown ///
   useEffect(() => {
-    // if there is no answer set then return this is for the initial load
+    // if there is no answer set then return. this is for the initial load
     if (maoriPlaceName.answer === "") {
       return;
     }
@@ -46,7 +46,7 @@ function App() {
       });
     }
 
-    // shuffle the array around with shuffle function
+    // shuffle the array around with my shuffle function
     const shuffle = shuffleArray(options);
 
     // set shuffled array to the answerOptions object
@@ -55,11 +55,12 @@ function App() {
     });
   }, [maoriPlaceName.answer, allData]);
 
-  /// generate random name function /////
+  /// generate random name function /////////
   const generateName = () => {
     const randNum = randomNum(allData.length);
 
     setIsCorrectAnswer(false);
+
     // placeName, hint, meaning
     setMaoriPlaceName({
       name: allData[randNum].placeName,
@@ -68,7 +69,7 @@ function App() {
     });
   };
 
-  // modal handlers
+  // modal handlers //////////////
   const onShowMap = () => {
     setShowMap(true);
   };
@@ -77,12 +78,13 @@ function App() {
     setShowMap(false);
   };
 
-  // answer handlers
+  // answer handlers ////////////
   const answerHandler = (status, answer) => {
     if (status === "correct") {
       setUserAnswerCorrect((value) => {
         return [
           {
+            // uuidv4() generates a unique id
             id: uuidv4(),
             answer: `${maoriPlaceName.name} - ${answer}, is correct!`,
           },
@@ -104,7 +106,7 @@ function App() {
   };
 
   return (
-    <div className=" container-fluid">
+    <React.Fragment>
       {showMap && <Map name={maoriPlaceName.name} onClickHandle={onHideMap} />}
       <Header onGenerateName={generateName} />
       <GameSection
@@ -118,7 +120,7 @@ function App() {
         correctAnswers={userAnswerCorrect}
         incorrectAnswers={userAnswerIncorrect}
       />
-    </div>
+    </React.Fragment>
   );
 }
 

@@ -1,8 +1,9 @@
+import React from "react";
 import "./Button.css";
 
 const Button = (props) => {
   return (
-    <div>
+    <React.Fragment>
       <button
         className={`btn ${props.class}`}
         type={`${props.type} button`}
@@ -10,7 +11,7 @@ const Button = (props) => {
       >
         {props.children}
       </button>
-    </div>
+    </React.Fragment>
   );
 };
 
