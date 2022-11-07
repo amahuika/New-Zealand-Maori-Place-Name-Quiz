@@ -5,11 +5,16 @@ import Swal from "sweetalert2";
 import React from "react";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
+import soundSuccess from "../../assets/sounds/successSound.mp3";
+
+const correctSound = new Audio(soundSuccess);
 
 const GameSection = (props) => {
   // select change handler
   const changeHandle = (e) => {
     if (e.value === props.placeNameData.answer) {
+      correctSound.play();
+
       Swal.fire({
         title: "Correct!",
         icon: "success",
