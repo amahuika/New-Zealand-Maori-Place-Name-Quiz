@@ -29,7 +29,7 @@ const GameSection = (props) => {
       console.log("incorrect");
     }
   };
-  console.log(props.options);
+
   return (
     <React.Fragment>
       <div className="row mb-3 justify-content-center">
@@ -62,6 +62,7 @@ const GameSection = (props) => {
               ...theme,
               borderRadius: 6,
             })}
+            isDisabled={props.isCorrectAnswer ? true : false}
           />
         </div>
       </div>

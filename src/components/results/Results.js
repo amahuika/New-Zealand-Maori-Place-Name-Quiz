@@ -22,7 +22,7 @@ const Results = (props) => {
     <div className="row justify-content-center mt-5">
       <div className="col-6 col-md-5">
         {props.correctAnswers.length > 0 && (
-          <Card>
+          <Card class="p-2">
             <h4 className="text-success">Correct</h4>
             <hr />
             {correctAnswerList}
@@ -31,7 +31,7 @@ const Results = (props) => {
       </div>
       <div className="col-6 col-md-5">
         {props.incorrectAnswers.length > 0 && (
-          <Card>
+          <Card class="p-2">
             <h4 className="text-danger">Incorrect</h4>
             <hr />
             {incorrectAnswerList}

@@ -15,7 +15,7 @@ const Header = (props) => {
           from the options given and view the location on the map by clicking
           the button under the place name.
           <br />
-          Stuck? click the hint button to get a hint.
+          Stuck? click the hint button.
         </p>
         <p className="mb-2">
           Click the button to generate a random Maori place name

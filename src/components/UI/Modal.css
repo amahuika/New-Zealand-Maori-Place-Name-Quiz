@@ -8,7 +8,7 @@
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-.modal {
+.modal-main {
   position: fixed;
   left: 33%;
   top: 5%;
@@ -24,7 +24,7 @@
 
 /* Large devices (laptops/desktops, 992px and down) */
 @media only screen and (max-width: 992px) {
-  .modal {
+  .modal-main {
     width: fit-content;
     top: 5%;
     left: 30%;
@@ -32,14 +32,14 @@
 }
 
 @media (max-width: 768px) {
-  .modal {
+  .modal-main {
     width: 70%;
     top: 5%;
     left: 15%;
   }
 }
 @media (max-width: 600px) {
-  .modal {
+  .modal-main {
     width: 85%;
     top: 5%;
     left: 7%;
