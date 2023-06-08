@@ -7,15 +7,7 @@ generate a random maori place name and select the correct translation from the o
 
 https://maori-place-name-game.netlify.app
 
-## Run Locally
 
-download project
-
-cd into project
-
-npm start
-
-have fun.
 
 ## Authors
 
